@@ -21,7 +21,7 @@ service.interceptors.request.use(
       })
     }
     if (store.getters.token) {
-      config.headers['X-Token'] = ''
+      config.headers['X-Token'] = store.getters.token
     }
     return config
   },
@@ -39,7 +39,8 @@ service.interceptors.response.use(
     if (res.status && res.status !== 200) {
       // 登录超时,重新登录
       if (res.status === 401) {
-        store.dispatch('FedLogOut').then(() => {
+        // 异步操作执行action的方法
+        store.dispatch('logOut').then(() => {
           location.reload()
         })
       }
