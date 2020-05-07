@@ -45,7 +45,7 @@ export default {
       this.$store.dispatch('setUserName', '真乖，赶紧关注公众号，组织都在等你~')
     },
     goGithub(index) {
-      window.location.href = 'https://github.com/sunniejs/vue-h5-template'
+      window.location.href = ''
     }
   }
 }
